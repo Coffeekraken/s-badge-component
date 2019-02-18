@@ -1,0 +1,67 @@
+/**
+ * @name    SBadgeComponent
+ * Create easily some badges with colors and icons support
+ *
+ * @example   html
+ * <span class="badge">1</span>
+ * <span class="badge badge--primary">1</span>
+ * <span class="badge badge--secondary">1</span>
+ * <span class="badge badge--success">1</span>
+ * <span class="badge badge--error">1</span>
+ * <span class="badge badge--warning">1</span>
+ * <span class="badge badge--info">1</span>
+ *
+ * @author    Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
+ */
+
+/**
+ * Print out the bare and style component css
+ * Generated classes:
+ * - `.badge`
+ * - `.badge--{color}`
+ * @param 	{List<Color>} 		[$color=default primary secondary] 		The colors to generate
+ */
+@mixin s-badge-classes(
+  $colors: default primary secondary
+) {
+  @include s-badge-classes-bare();
+  @include s-badge-classes-style($colors);
+}
+
+/**
+ * Print out the bare component css
+ * Generated classes:
+ * - `.badge`
+ */
+@mixin s-badge-classes-bare() {
+  @include s-component('badge') {
+    .#{s-component()} {
+      @include s-badge-bare();
+    }
+  }
+}
+
+/**
+ * Print out the style component css
+ * Generated classes:
+ * - `.badge`
+ * - `.badge--{color}`
+ * @param 	{List<Color>} 		[$color=default primary secondary] 		The colors to generate
+ */
+@mixin s-badge-classes-style(
+  $colors: default primary secondary
+) {
+  @include s-component('badge') {
+    @each $color in $colors {
+      $sel : ".#{s-component()}--#{$color}";
+
+      @if $color == default {
+        $sel : ".#{s-component()}";
+      }
+
+      #{$sel} {
+        @include s-badge-style($color);
+      }
+    }
+  }
+}

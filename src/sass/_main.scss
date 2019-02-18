@@ -1,0 +1,60 @@
+/**
+ * @name    SBadgeComponent
+ * Create easily some badges with colors and icons support
+ *
+ * @example   html
+ * <span class="badge">1</span>
+ * <span class="badge badge--primary">1</span>
+ * <span class="badge badge--secondary">1</span>
+ * <span class="badge badge--success">1</span>
+ * <span class="badge badge--error">1</span>
+ * <span class="badge badge--warning">1</span>
+ * <span class="badge badge--info">1</span>
+ *
+ * @author    Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
+ */
+
+/**
+ * Print out the bare and style component css
+ * @param 	{List<Color>} 		[$color=default] 		The color to generate
+ */
+@mixin s-badge(
+  $color: default
+) {
+  @include s-badge-bare();
+  @include s-badge-style($color);
+}
+
+/**
+ * Print out the bare component css
+ */
+@mixin s-badge-bare() {
+  @include s-component('badge') {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2em;
+    height: 2em;
+    border-radius: 1em;
+    vertical-align: text-bottom;
+    font-weight: bold;
+  }
+}
+
+/**
+ * Print out the style component css
+ * @param 	{Color} 		[$color=default] 		The color to generate
+ */
+@mixin s-badge-style(
+  $color: default
+) {
+  @include s-component('badge') {
+    background-color: s-color($color);
+
+    @if lightness(s-color($color)) > 70 {
+      color : s-color($color, -darken 30%);
+    } @else {
+      color : white;
+    }
+  }
+}

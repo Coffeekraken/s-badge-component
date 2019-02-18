@@ -1,0 +1,22 @@
+@import 'node_modules/coffeekraken-sugar/index';
+@import 'node_modules/coffeekraken-s-typography-component/index';
+@import 'node_modules/coffeekraken-s-button-component/index';
+@import '../../../index';
+
+@include s-setup(());
+@include s-init();
+@include s-classes();
+
+@include s-button-classes();
+@include s-typography-classes();
+
+@include s-badge-classes(
+  $colors: default primary secondary success error warning info
+);
+.badge {
+  font-size: 0.6em;
+}
+
+body {
+	padding: s-space(bigger);
+}
