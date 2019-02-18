@@ -50,6 +50,9 @@
     "lint"
   ],
   "keywords": [
+    "badge",
+    "sass",
+    "scss",
     "webcomponent",
     "component",
     "html",
