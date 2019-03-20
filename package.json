@@ -1,6 +1,6 @@
 {
   "name": "coffeekraken-s-badge-component",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create easily some badges with colors and icons support",
   "main": "_index.scss",
   "homepage": "http://coffeekraken.io",
@@ -46,8 +46,7 @@
   },
   "pre-commit": [
     "pretty-quick-commit",
-    "test",
-    "lint"
+    "test"
   ],
   "keywords": [
     "badge",
