@@ -18,9 +18,7 @@
  * Print out the bare and style component css
  * @param 	{List<Color>} 		[$color=default] 		The color to generate
  */
-@mixin s-badge(
-  $color: default
-) {
+@mixin s-badge($color: default) {
   @include s-badge-bare();
   @include s-badge-style($color);
 }
@@ -45,16 +43,14 @@
  * Print out the style component css
  * @param 	{Color} 		[$color=default] 		The color to generate
  */
-@mixin s-badge-style(
-  $color: default
-) {
+@mixin s-badge-style($color: default) {
   @include s-component('badge') {
     background-color: s-color($color);
 
     @if lightness(s-color($color)) > 70 {
-      color : s-color($color, -darken 30%);
+      color: s-color($color, -darken 30%);
     } @else {
-      color : white;
+      color: white;
     }
   }
 }
